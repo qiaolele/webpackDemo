@@ -1,0 +1,179 @@
+@import "_bootstrap.scss";
+
+$base_width: 1000px;
+
+//清除浮动样式
+// Mixin itself
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//显示或隐藏内容
+// Classes
+.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+
+//行内元素转为块级元素
+.getBlock {
+  display: inline-block;
+}
+
+//水平居中
+  // Mixin
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Mixin截断文本
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//快速浮动
+// Classes
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+//清除默认样式
+.liStyleNone {
+  list-style: none;
+}
+.aTextDireNone {
+  text-decoration:none;
+}
+.getCircle {
+  border-radius: 50%;
+}
+.positionRe {
+  position: relative;
+}
+.positionAb {
+  position: absolute;
+}
+.AddCursor {
+  cursor: pointer;
+}
+li {
+  @extend .liStyleNone;
+}
+a,a:hover,a:visited,a:focus{
+  @extend .aTextDireNone;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+/*—————————————————————————————————头部nav样式—————————————————————————*/
+
+//头部导航默认背景修改
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+.container-fluid{
+  background:#f00;
+  .header-logoBg{
+    background: url('../../../src/images/logo.png') center center no-repeat;
+    width: 253px;
+    height: 64px;
+    display:inline-block;
+  }
+  .header-nav {
+    @extend .positionRe;
+    li{
+      @extend .pull-left;
+      height: 70px;
+      line-height: 70px;
+    }
+    a{
+      padding:0 24px;
+      font-size: 14px;
+      color: #3e8acc;
+      @extend .getBlock;
+      &:hover {
+        color: #fff;
+        background: #3c88ca;
+      }
+    }
+    .header-help {
+      @extend .positionRe;
+      padding: 0 60px;
+      line-height: 0;
+      right: -173px;
+      .header-infoBg{
+        @extend .getBlock;
+        @extend .getCircle;
+        @extend .positionRe;
+        @extend .AddCursor;
+        background: url('../../../src/images/header_info.png') center center no-repeat;
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: -60px;
+      }
+      .header-infoList{
+        border: 1px solid #b6d1e8;
+        @extend .positionAb;
+        display: none;
+        background-color: #fff;
+        border-radius: 5px;
+        width: 100px;
+        top: 75px;
+        right: 0;
+        span {
+          @extend .getBlock;
+          padding: 18px 21px;
+        }
+      }
+    }
+    .getBgColor {
+      background: #3c88ca;
+      color: #fff;
+    }
+  }
+}
+
+
+/*—————————————————————————————————头部nav样式—————————————————————————*/
+.footer {
+  background:#9ac5e1;
+  @extend .positionRe;
+  padding: 25px 0 15px;
+  .footer-con {
+    text-align: center;
+    color:#fff;
+    width:550px;
+    @extend .center-block;
+    line-height: 30px;
+  }
+  .footer-logo {
+    width: 20px;
+    height: 20px;
+    background: #f00;
+    @extend .getBlock;
+    @extend .positionRe;
+    top: 5px;
+  }
+}
+

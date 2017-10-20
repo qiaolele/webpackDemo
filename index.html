@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+        <%=
+        compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()
+        %>
+    </script>
+
     <!--Import bootstrap.css-->
     <!--<link rel="stylesheet" href="src/style/css/bootstrap/bootstrap.css">-->
     <!--<link rel="stylesheet" href="src/style/css/index.css">-->
@@ -41,6 +47,9 @@
         </nav>
 
     </div>
+    <div class="content">
+        <img src="src/images/header_info.png" alt="">
+    </div>
     <div class="bbb" style="background:#f00;margin-top:70px;"></div>
     <!--底部导航-->
     <footer class="container-fluid footer">
@@ -53,17 +62,25 @@
             </p>
 
     </footer>
-    <%= htmlWebpackPlugin.options.date %>
+    <!--<%= htmlWebpackPlugin.options.date %>-->
 
-    <% for (var key in htmlWebpackPlugin.files) { %>
-        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+    <!--<% for (var key in htmlWebpackPlugin.files) { %>-->
+        <!--<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>-->
+    <!--<% } %>-->
+
+    <!--<% for (var key in htmlWebpackPlugin.options) { %>-->
+        <!--<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>-->
+    <!--<% } %>-->
+
+    <% for (var k in htmlWebpackPlugin.files.chunks) { %>
+        <% if(k !== 'main') { %>
+            <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[k].entry.substr(htmlWebpackPlugin.files.publicPath.length) %>"></script>
+        <% } %>
     <% } %>
 
-    <% for (var key in htmlWebpackPlugin.options) { %>
-        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
-    <% } %>
-    <!--我是注释-->
+
+
+
 </body>
-<script src="src/script/jquery-2.1.4.min.js" type="text/javascript"></script>
-<script src="src/script/bootstrap/bootstrap.js" type="text/javascript"></script>
+
 </html>

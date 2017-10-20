@@ -1,0 +1,14 @@
+
+@import "../sass/index.scss";
+@import './flex.css';
+
+
+
+body,html {
+  margin: 0;
+  padding: 0;
+  background: #ff0000;
+}
+ul,li{
+  list-style:none;
+}
